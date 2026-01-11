@@ -27,16 +27,15 @@
 /* ================= THEME ANIMATION ================= */
 @keyframes themeFade{
     from{
-        opacity:0.9;
-        filter:blur(6px);
-        transform:scale(.985);
+        opacity:0;
+        filter:blur(4px);
     }
     to{
         opacity:1;
         filter:blur(0);
-        transform:scale(1);
     }
 }
+
 
 /* ================= BODY ================= */
 body{
@@ -170,7 +169,7 @@ body.light{
 
     box-shadow:0 10px 30px rgba(0,0,0,.35);
     transition:background .45s ease, box-shadow .45s ease;
-    animation:themeFade .45s ease;
+    
 }
 
 /* HEADER */
@@ -284,6 +283,7 @@ body.light .ig-theme-toggle i{
         margin-left:0;
     }
 }
+
 
 
 
