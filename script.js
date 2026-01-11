@@ -29,8 +29,9 @@ b.onclick=()=>b.classList.toggle('liked')
 /* MUSIC */
 const audios=[]
 document.querySelectorAll('.post-music').forEach(m=>{
-const audio=new Audio(m.dataset.audio)
-audio.loop=true
+const audio = new Audio(m.dataset.audio);
+audio.loop = true;
+m.audioRef = audio;
 const icon=m.querySelector('.music-icon')
 audios.push({audio,icon})
 
@@ -46,6 +47,26 @@ icon.classList.remove('active')
 }
 })
 })
+/* ================= MUSIC AUTOPAUSE ON SCROLL ================= */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        const post = entry.target;
+        const music = post.querySelector('.post-music');
+        if (!music) return;
+
+        const audio = music.audioRef;
+        const icon = music.querySelector('.music-icon');
+
+        if (!entry.isIntersecting && audio && !audio.paused) {
+            audio.pause();
+            icon.classList.remove('active');
+        }
+    });
+}, { threshold: 0.4 });
+
+document.querySelectorAll('.ig-post').forEach(post => observer.observe(post));
+
+
 
 
 
