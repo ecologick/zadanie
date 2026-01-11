@@ -26,12 +26,88 @@ color:var(--text-light);
 
 .ig-app{display:flex}
 
-.ig-sidebar{
-width:240px;
-padding:20px;
-background:var(--panel);
-border-right:1px solid var(--border);
+/* ================= LEFT SIDEBAR – VISUAL IMPROVEMENTS ================= */
+
+.ig-sidebar {
+    background: linear-gradient(
+        180deg,
+        #1e2128 0%,
+        #1b1e25 100%
+    );
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
 }
+
+/* LOGO */
+.ig-logo {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 28px;
+}
+
+/* THEME TOGGLE */
+.ig-theme-toggle {
+    margin-bottom: 30px;
+}
+
+.ig-theme-toggle i {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 12px;
+    border-radius: 50%;
+    transition: background 0.25s, transform 0.25s;
+}
+
+.ig-theme-toggle i:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: rotate(15deg);
+}
+
+/* NAV ITEMS */
+.ig-nav a {
+    border-radius: 12px;
+    padding: 10px 12px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.ig-nav a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(4px);
+}
+
+.ig-nav span {
+    font-size: 15px;
+}
+
+/* ICONS */
+.ig-nav i {
+    width: 22px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+/* ================= LIGHT MODE – SIDEBAR ================= */
+
+body.light .ig-sidebar {
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f2f4f7 100%
+    );
+    box-shadow: 4px 0 18px rgba(0, 0, 0, 0.08);
+}
+
+body.light .ig-theme-toggle i {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+body.light .ig-theme-toggle i:hover {
+    background: rgba(0, 0, 0, 0.12);
+}
+
+body.light .ig-nav a:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
 
 body.light .ig-sidebar{background:var(--panel-light)}
 
@@ -136,6 +212,7 @@ padding:12px 14px;
 .like-btn.liked{color:var(--accent)}
 
 .post-text{padding:0 14px 14px}
+
 
 
 
