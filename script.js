@@ -28,11 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ================= THEME ================= */
-    document.getElementById('themeToggle').addEventListener('click', () => {
-        document.body.classList.toggle('light');
-        themeToggle.classList.toggle('fa-moon');
-        themeToggle.classList.toggle('fa-sun');
-    });
+const themeToggle = document.getElementById('themeToggle');
+
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    themeToggle.classList.toggle('fa-moon');
+    themeToggle.classList.toggle('fa-sun');
+});
+
 
     /* ================= LIKES ================= */
     document.querySelectorAll('.like-btn').forEach(btn => {
@@ -102,16 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     audios.forEach((_, post) => observer.observe(post));
 });
-// 🌗 PRZEŁĄCZANIE TRYBU DZIEŃ / NOC
-const themeToggle = document.getElementById("themeToggle");
 
-themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("light");
-
-    // zmiana ikonki
-    themeToggle.classList.toggle("fa-moon");
-    themeToggle.classList.toggle("fa-sun");
-});
 
 
 
