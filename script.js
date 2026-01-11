@@ -1,20 +1,28 @@
 document.addEventListener('DOMContentLoaded',()=>{
 
 /* SLIDER */
-document.querySelectorAll('.slider').forEach(slider=>{
-let slides=slider.querySelectorAll('.slide')
-let i=0
-slider.querySelector('.next').onclick=()=>{
-slides[i].classList.remove('active')
-i=(i+1)%slides.length
-slides[i].classList.add('active')
-}
-slider.querySelector('.prev').onclick=()=>{
-slides[i].classList.remove('active')
-i=(i-1+slides.length)%slides.length
-slides[i].classList.add('active')
-}
-})
+document.querySelectorAll('.slider').forEach(slider => {
+    const slides = slider.querySelectorAll('.slide');
+    const next = slider.querySelector('.next');
+    const prev = slider.querySelector('.prev');
+
+    if (!slides.length || !next || !prev) return;
+
+    let index = 0;
+
+    next.addEventListener('click', () => {
+        slides[index].classList.remove('active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('active');
+    });
+
+    prev.addEventListener('click', () => {
+        slides[index].classList.remove('active');
+        index = (index - 1 + slides.length) % slides.length;
+        slides[index].classList.add('active');
+    });
+});
+
 
 /* THEME */
 document.getElementById('themeToggle').onclick=()=>{
@@ -70,6 +78,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.4 });
 
 document.querySelectorAll('.ig-post').forEach(post => observer.observe(post));
+
 
 
 
