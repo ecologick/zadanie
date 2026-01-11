@@ -54,8 +54,10 @@ body.light{
     box-shadow: 4px 0 20px rgba(0,0,0,.4);
     display: flex;
     flex-direction: column;
-    z-index: 100;
+    z-index: 9999;          /* 🔴 NAJWAŻNIEJSZE */
+    pointer-events: auto;  /* 🔴 */
 }
+
 
 /* LOGO */
 .ig-logo{
@@ -280,6 +282,7 @@ body.light .ig-theme-toggle i{
         padding-bottom: 80px;
     }
 }
+
 
 
 
