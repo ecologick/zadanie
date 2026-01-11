@@ -26,25 +26,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    /* =========================
-       LIKE BUTTON
-    ========================== */
-    document.querySelectorAll(".like-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-            btn.classList.toggle("fa-regular");
-            btn.classList.toggle("fa-solid");
-            btn.classList.toggle("liked");
-        });
+    /* ================= LIKE BUTTON ================= */
+document.querySelectorAll('.like-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.classList.toggle('fa-regular');
+        btn.classList.toggle('fa-solid');
+        btn.classList.toggle('liked');
     });
+});
 
-    /* =========================
-       DARK MODE (MOON ICON)
-    ========================== */
-    const themeToggle = document.getElementById("themeToggle");
-    if (themeToggle) {
-        themeToggle.addEventListener("click", () => {
-            document.body.classList.toggle("dark");
-        });
-    }
+    /* ================= THEME TOGGLE ================= */
+const themeToggle = document.getElementById('themeToggle');
+
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+
+    themeToggle.classList.toggle('fa-moon');
+    themeToggle.classList.toggle('fa-sun');
+
 
 });
+
