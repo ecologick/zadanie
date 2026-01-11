@@ -49,14 +49,18 @@ body.light{
     width: 240px;
     height: 100vh;
     padding: 20px;
+
     background: linear-gradient(180deg,#1e2128,#1b1e25);
     border-right: 1px solid var(--border);
     box-shadow: 4px 0 20px rgba(0,0,0,.4);
+
     display: flex;
     flex-direction: column;
-    z-index: 9999;          /* 🔴 NAJWAŻNIEJSZE */
-    pointer-events: auto;  /* 🔴 */
+
+    z-index: 99999;          /* 🔴 KLUCZ */
+    pointer-events: auto;   /* 🔴 */
 }
+
 
 
 /* LOGO */
@@ -118,6 +122,9 @@ body.light{
     flex-direction: column;
     align-items: center;
     padding: 30px;
+    
+    position: relative; /* 🔴 */
+    z-index: 1;         /* 🔴 */
 }
 
 /* ================= STORIES ================= */
@@ -282,6 +289,7 @@ body.light .ig-theme-toggle i{
         padding-bottom: 80px;
     }
 }
+
 
 
 
