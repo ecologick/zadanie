@@ -253,6 +253,36 @@ body {
         font-size: 22px;
     }
 }
+/* ================= LIGHT MODE ================= */
+body.light {
+    background: #fff;
+    color: #000;
+}
+
+body.light .ig-sidebar,
+body.light .ig-right,
+body.light .ig-post,
+body.light .ig-mobile-nav {
+    background: #fff;
+    border-color: #ddd;
+}
+
+body.light .ig-nav a,
+body.light .post-actions i,
+body.light .ig-mobile-nav i {
+    color: #000;
+}
+
+body.light .suggestions-title {
+    color: #555;
+}
+
+body.light .slide-btn {
+    background: rgba(255, 255, 255, 0.7);
+    color: #000;
+}
+
+
 
 
 
