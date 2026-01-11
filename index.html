@@ -5,15 +5,14 @@
     <title>Instagram UI Clone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="ig-app">
 
-    <!-- LEFT SIDEBAR -->
     <aside class="ig-sidebar">
         <div class="ig-logo">Instagram</div>
 
@@ -33,17 +32,7 @@
         </nav>
     </aside>
 
-    <!-- FEED -->
     <main class="ig-feed">
-
-        <!-- STORIES -->
-        <div class="ig-stories">
-            <div class="story"></div>
-            <div class="story"></div>
-            <div class="story"></div>
-            <div class="story"></div>
-            <div class="story"></div>
-        </div>
 
         <!-- POST -->
         <article class="ig-post">
@@ -53,9 +42,7 @@
                 <i class="fa-solid fa-ellipsis"></i>
             </header>
 
-            <!-- SLIDER -->
             <div class="post-image slider">
-
                 <img src="slide1.png" class="slide active">
                 <img src="slide2.png" class="slide">
                 <img src="slide3.png" class="slide">
@@ -65,16 +52,13 @@
                 </button>
                 <button class="slide-btn next">
                     <i class="fa-solid fa-chevron-right"></i>
-                 </button>
+                </button>
 
-    <!-- 🎵 IKONA MUZYKI -->
-    <            div class="post-music" data-audio="miusic1.mp3">
+                <!-- 🎵 MUZYKA -->
+                <div class="post-music" data-audio="music1.mp3">
                     <i class="fa-solid fa-volume-high music-icon"></i>
                 </div>
-
-</div>
-
-
+            </div>
 
             <div class="post-actions">
                 <div class="left">
@@ -90,78 +74,10 @@
             </div>
         </article>
 
-         <!-- POST -->
-        <article class="ig-post">
-            <header class="post-header">
-                <div class="avatar"></div>
-                <span class="username">kingsteampoland</span>
-                <i class="fa-solid fa-ellipsis"></i>
-            </header>
-
-            <!-- SLIDER -->
-            <div class="post-image slider">
-                <img src="slide1.png" class="slide active">
-                <img src="slide2.png" class="slide">
-                <img src="slide3.png" class="slide">
-
-                <button class="slide-btn prev">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-                <button class="slide-btn next">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
-
-            <!-- 🎵 MUZYKA POD POSTEM -->
-           
-
-            <div class="post-actions">
-                <div class="left">
-                    <i class="fa-regular fa-heart like-btn"></i>
-                    <i class="fa-regular fa-comment"></i>
-                    <i class="fa-regular fa-paper-plane"></i>
-                </div>
-                <i class="fa-regular fa-bookmark"></i>
-            </div>
-
-            <div class="post-text">
-                <strong>GOL!</strong> Patryk Zapała – POL vs FRA
-            </div>
-        </article>
-
-        <!-- KOLEJNE POSTY – kopiujesz cały <article> -->
     </main>
-
-    <!-- RIGHT PANEL -->
-    <aside class="ig-right">
-        <div class="ig-profile">
-            <div class="avatar"></div>
-            <div>
-                <strong>Michał Witkowski</strong><br>
-                <small>Przełącz</small>
-            </div>
-        </div>
-
-        <p class="suggestions-title">Propozycje dla Ciebie</p>
-
-        <div class="suggestion">
-            <div class="avatar small"></div>
-            <span>rolnik_kieszonkowy</span>
-            <button>Obserwuj</button>
-        </div>
-    </aside>
-
 </div>
-
-<!-- MOBILE NAV -->
-<nav class="ig-mobile-nav">
-    <i class="fa-solid fa-house"></i>
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <i class="fa-regular fa-square-plus"></i>
-    <i class="fa-regular fa-heart"></i>
-    <i class="fa-regular fa-user"></i>
-</nav>
 
 <script src="script.js" defer></script>
 </body>
 </html>
+
