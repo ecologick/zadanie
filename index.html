@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,6 +16,7 @@
     <!-- LEFT SIDEBAR -->
     <aside class="ig-sidebar">
         <div class="ig-logo">Instagram</div>
+
         <div class="ig-theme-toggle">
             <i class="fa-solid fa-moon" id="themeToggle"></i>
         </div>
@@ -32,8 +31,6 @@
             <a><i class="fa-regular fa-square-plus"></i><span>Utwórz</span></a>
             <a><i class="fa-regular fa-user"></i><span>Profil</span></a>
         </nav>
-
-      
     </aside>
 
     <!-- FEED -->
@@ -56,7 +53,8 @@
                 <i class="fa-solid fa-ellipsis"></i>
             </header>
 
-            <div class="post-image slider" data-slide="0">
+            <!-- SLIDER -->
+            <div class="post-image slider">
                 <img src="slide1.png" class="slide active">
                 <img src="slide2.png" class="slide">
                 <img src="slide3.png" class="slide">
@@ -69,74 +67,13 @@
                 </button>
             </div>
 
-
-            <div class="post-actions">
-                <div class="left">
-                    <i class="fa-regular fa-heart like-btn">123</i>
-                    <i class="fa-regular fa-comment"></i>
-                    <i class="fa-regular fa-paper-plane"></i>
-                </div>
-                <i class="fa-regular fa-bookmark"></i>
+            <!-- 🎵 MUZYKA POD POSTEM -->
+            <div class="post-music">
+                <!-- ⬇️⬇️⬇️ TU PODAJESZ PLIK MP3 ⬇️⬇️⬇️ -->
+                <audio controls>
+                    <source src="miusic1.mp3" type="audio/mpeg">
+                </audio>
             </div>
-
-            <div class="post-text">
-                <strong>GOL!</strong> Patryk Zapała – POL vs FRA
-            </div>
-        </article>
-         <article class="ig-post">
-            <header class="post-header">
-                <div class="avatar"></div>
-                <span class="username">kingsteampoland</span>
-                <i class="fa-solid fa-ellipsis"></i>
-            </header>
-
-            <div class="post-image slider" data-slide="0">
-                <img src="slide1.png" class="slide active">
-                <img src="slide2.png" class="slide">
-                <img src="slide3.png" class="slide">
-
-                <button class="slide-btn prev">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-                <button class="slide-btn next">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
-
-
-            <div class="post-actions">
-                <div class="left">
-                    <i class="fa-regular fa-heart like-btn">123</i>
-                    <i class="fa-regular fa-comment"></i>
-                    <i class="fa-regular fa-paper-plane"></i>
-                </div>
-                <i class="fa-regular fa-bookmark"></i>
-            </div>
-
-            <div class="post-text">
-                <strong>GOL!</strong> Patryk Zapała – POL vs FRA
-            </div>
-        </article>
-         <article class="ig-post">
-            <header class="post-header">
-                <div class="avatar"></div>
-                <span class="username">kingsteampoland</span>
-                <i class="fa-solid fa-ellipsis"></i>
-            </header>
-
-            <div class="post-image slider" data-slide="0">
-                <img src="slide1.png" class="slide active">
-                <img src="slide2.png" class="slide">
-                <img src="slide3.png" class="slide">
-
-                <button class="slide-btn prev">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-                <button class="slide-btn next">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
-
 
             <div class="post-actions">
                 <div class="left">
@@ -152,9 +89,51 @@
             </div>
         </article>
 
-        <div class="ig-post filler"></div>
-        <div class="ig-post filler"></div>
+         <!-- POST -->
+        <article class="ig-post">
+            <header class="post-header">
+                <div class="avatar"></div>
+                <span class="username">kingsteampoland</span>
+                <i class="fa-solid fa-ellipsis"></i>
+            </header>
 
+            <!-- SLIDER -->
+            <div class="post-image slider">
+                <img src="slide1.png" class="slide active">
+                <img src="slide2.png" class="slide">
+                <img src="slide3.png" class="slide">
+
+                <button class="slide-btn prev">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="slide-btn next">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- 🎵 MUZYKA POD POSTEM -->
+            <div class="post-music">
+                <!-- ⬇️⬇️⬇️ TU PODAJESZ PLIK MP3 ⬇️⬇️⬇️ -->
+                <audio controls>
+                    <source src="" type="audio/mpeg">
+                </audio>
+            </div>
+
+            <div class="post-actions">
+                <div class="left">
+                    <i class="fa-regular fa-heart like-btn"></i>
+                    <i class="fa-regular fa-comment"></i>
+                    <i class="fa-regular fa-paper-plane"></i>
+                </div>
+                <i class="fa-regular fa-bookmark"></i>
+            </div>
+
+            <div class="post-text">
+                <strong>GOL!</strong> Patryk Zapała – POL vs FRA
+            </div>
+        </article>
+
+        <!-- KOLEJNE POSTY – kopiujesz cały <article> -->
     </main>
 
     <!-- RIGHT PANEL -->
@@ -162,7 +141,7 @@
         <div class="ig-profile">
             <div class="avatar"></div>
             <div>
-                <strong>Michał Witkowski</strong>
+                <strong>Michał Witkowski</strong><br>
                 <small>Przełącz</small>
             </div>
         </div>
