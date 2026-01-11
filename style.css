@@ -210,6 +210,29 @@ body.light{
 }
 
 .slide.active{opacity:1}
+.post-image{
+    position:relative;
+    width:100%;
+    aspect-ratio:1/1;
+    overflow:hidden;
+}
+
+.slide-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,.55);
+    color:#fff;
+    border:none;
+    padding:10px;
+    border-radius:50%;
+    cursor:pointer;
+    z-index:5;
+}
+
+.prev{ left:12px; }
+.next{ right:12px; }
+
 
 /* ================= MUSIC ================= */
 .post-music{
@@ -283,6 +306,7 @@ body.light .ig-theme-toggle i{
         margin-left:0;
     }
 }
+
 
 
 
