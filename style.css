@@ -182,23 +182,31 @@ body {
 
 
 /* ================= MUSIC ================= */
+..post-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
 .post-music {
     position: absolute;
     top: 14px;
     right: 14px;
-    z-index: 3;
+    z-index: 5;
 }
 
 .music-icon {
-    background: rgba(0,0,0,0.55);
+    background: rgba(0,0,0,0.6);
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
 }
 
 .music-icon.active {
-    color: var(--accent);
+    color: #ff3040;
 }
+
 
 /* ================= ACTIONS ================= */
 .post-actions {
@@ -308,6 +316,7 @@ body.light .music-icon {
         border-color: var(--border-light);
     }
 }
+
 
 
 
