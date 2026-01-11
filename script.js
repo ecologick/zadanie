@@ -1,41 +1,50 @@
-// UI only – brak logiki aplikacji
-console.log("Instagram UI layout loaded");
-/* =========================
-   THEME TOGGLE
-========================= */
+document.addEventListener("DOMContentLoaded", () => {
 
-const toggle = document.getElementById("themeToggle");
+    /* =========================
+       SLIDER (POST IMAGE)
+    ========================== */
+    document.querySelectorAll(".slider").forEach(slider => {
+        const slides = slider.querySelectorAll(".slide");
+        const prevBtn = slider.querySelector(".prev");
+        const nextBtn = slider.querySelector(".next");
 
-toggle.addEventListener("click", () => {
-    document.body.classList.toggle("light");
+        let current = 0;
 
-    // zmiana ikony
-    if (document.body.classList.contains("light")) {
-        toggle.classList.remove("fa-moon");
-        toggle.classList.add("fa-sun");
-    } else {
-        toggle.classList.remove("fa-sun");
-        toggle.classList.add("fa-moon");
-    }
-});
-
-/* =========================
-   LIKE BUTTON
-========================= */
-
-document.querySelectorAll(".like-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        btn.classList.toggle("liked");
-
-        // zmiana ikonki regular -> solid
-        if (btn.classList.contains("liked")) {
-            btn.classList.remove("fa-regular");
-            btn.classList.add("fa-solid");
-        } else {
-            btn.classList.remove("fa-solid");
-            btn.classList.add("fa-regular");
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove("active"));
+            slides[index].classList.add("active");
         }
-    });
-});
 
-console.log("UI interactions loaded");
+        nextBtn.addEventListener("click", () => {
+            current = (current + 1) % slides.length;
+            showSlide(current);
+        });
+
+        prevBtn.addEventListener("click", () => {
+            current = (current - 1 + slides.length) % slides.length;
+            showSlide(current);
+        });
+    });
+
+    /* =========================
+       LIKE BUTTON
+    ========================== */
+    document.querySelectorAll(".like-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            btn.classList.toggle("fa-regular");
+            btn.classList.toggle("fa-solid");
+            btn.classList.toggle("liked");
+        });
+    });
+
+    /* =========================
+       DARK MODE (MOON ICON)
+    ========================== */
+    const themeToggle = document.getElementById("themeToggle");
+    if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+        });
+    }
+
+});
