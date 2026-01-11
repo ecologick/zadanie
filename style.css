@@ -7,30 +7,34 @@
 
 /* ================= VARIABLES ================= */
 :root{
+    /* DARK */
     --bg:#1f2229;
     --panel:#262a33;
     --border:#323744;
     --text:#e4e6eb;
     --muted:#9aa0a6;
-    --accent:#ff3040;
 
-    --bg-light:#f5f1eb;
-    --panel-light:#ffffff;
-    --border-light:#e6ded3;
-    --text-light:#2b2b2b;
+    /* WARM LIGHT (BEIGE) */
+    --bg-light:#f3ede4;
+    --panel-light:#fbf8f3;
+    --border-light:#e2d7c7;
+    --text-light:#3b2f23;
+    --muted-light:#7a6a57;
+
+    --accent:#ff3040;
 }
 
-/* ================= ANIMATION ================= */
+/* ================= THEME ANIMATION ================= */
 @keyframes themeFade {
-    0% {
-        opacity: 0.85;
-        filter: blur(6px);
-        transform: scale(0.985);
+    from{
+        opacity:0.85;
+        filter:blur(6px);
+        transform:scale(0.985);
     }
-    100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: scale(1);
+    to{
+        opacity:1;
+        filter:blur(0);
+        transform:scale(1);
     }
 }
 
@@ -42,13 +46,11 @@ body{
     font-family:Arial, Helvetica, sans-serif;
     overflow:hidden;
 
-    transition:
-        background .4s ease,
-        color .4s ease;
+    transition:background .45s ease, color .45s ease;
 }
 
 body.light{
-    background:linear-gradient(180deg,#f5f1eb,#efe9e1);
+    background:linear-gradient(180deg,#f3ede4,#efe5d8);
     color:var(--text-light);
 }
 
@@ -75,11 +77,8 @@ body.light{
     flex-direction:column;
     z-index:1000;
 
-    transition:
-        background .4s ease,
-        box-shadow .4s ease;
-
-    animation: themeFade .45s ease;
+    transition:background .45s ease, box-shadow .45s ease;
+    animation:themeFade .45s ease;
 }
 
 /* LOGO */
@@ -143,8 +142,7 @@ body.light{
     align-items:center;
     padding:30px;
 
-    transition: background .4s ease;
-    animation: themeFade .45s ease;
+    animation:themeFade .45s ease;
 }
 
 /* ================= STORIES ================= */
@@ -171,11 +169,8 @@ body.light{
     overflow:hidden;
 
     box-shadow:0 10px 30px rgba(0,0,0,.35);
-    transition:
-        background .4s ease,
-        box-shadow .4s ease;
-
-    animation: themeFade .45s ease;
+    transition:background .45s ease, box-shadow .45s ease;
+    animation:themeFade .45s ease;
 }
 
 /* HEADER */
@@ -203,7 +198,6 @@ body.light{
     position:relative;
     width:100%;
     aspect-ratio:1/1;
-    overflow:hidden;
 }
 
 .slide{
@@ -216,21 +210,7 @@ body.light{
     transition:.3s;
 }
 
-.slide.active{
-    opacity:1;
-}
-
-.slide-btn{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    background:rgba(0,0,0,.5);
-    color:#fff;
-    border:none;
-    padding:10px;
-    border-radius:50%;
-    cursor:pointer;
-}
+.slide.active{opacity:1}
 
 /* ================= MUSIC ================= */
 .post-music{
@@ -274,23 +254,23 @@ body.light{
 
 /* ================= LIGHT MODE ================= */
 body.light .ig-sidebar{
-    background:linear-gradient(180deg,#ffffff,#f3eee7);
+    background:linear-gradient(180deg,#fdfaf6,#efe4d3);
     border-right:1px solid var(--border-light);
-    box-shadow:4px 0 18px rgba(120,90,60,.12);
+    box-shadow:4px 0 18px rgba(150,120,80,.2);
 }
 
 body.light .ig-post{
-    background:linear-gradient(180deg,#ffffff,#faf7f3);
-    box-shadow:0 10px 25px rgba(120,90,60,.15);
+    background:linear-gradient(180deg,#fffdf9,#f6efe5);
     border:1px solid var(--border-light);
+    box-shadow:0 10px 25px rgba(150,120,80,.25);
 }
 
 body.light .ig-nav a:hover{
-    background:rgba(190,160,120,.18);
+    background:rgba(190,160,120,.25);
 }
 
 body.light .ig-theme-toggle i{
-    background:rgba(190,160,120,.2);
+    background:rgba(190,160,120,.35);
     color:#6b4f2d;
 }
 
@@ -310,6 +290,7 @@ body.light .ig-theme-toggle i{
         overflow:visible;
     }
 }
+
 
 
 
