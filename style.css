@@ -179,9 +179,6 @@ body {
 
 .slide-btn.prev { left: 10px; }
 .slide-btn.next { right: 10px; }
-.post-image {
-    position: relative;
-}
 
 
 /* ================= MUSIC ================= */
@@ -311,6 +308,7 @@ body.light .music-icon {
         border-color: var(--border-light);
     }
 }
+
 
 
 
