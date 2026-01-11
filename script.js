@@ -1,17 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    let userInteracted = false;
+
     /* ================= SLIDERS – ALL POSTS ================= */
     document.querySelectorAll('.slider').forEach(slider => {
         const slides = slider.querySelectorAll('.slide');
         const nextBtn = slider.querySelector('.next');
         const prevBtn = slider.querySelector('.prev');
-
         let current = 0;
 
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-        }
+        const showSlide = i => {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[i].classList.add('active');
+        };
 
         nextBtn.addEventListener('click', e => {
             e.stopPropagation();
@@ -26,15 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* ================= THEME TOGGLE ================= */
-    const themeToggle = document.getElementById('themeToggle');
-    themeToggle.addEventListener('click', () => {
+    /* ================= THEME ================= */
+    document.getElementById('themeToggle').addEventListener('click', () => {
         document.body.classList.toggle('light');
         themeToggle.classList.toggle('fa-moon');
         themeToggle.classList.toggle('fa-sun');
     });
 
-    /* ================= LIKE BUTTON ================= */
+    /* ================= LIKES ================= */
     document.querySelectorAll('.like-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             btn.classList.toggle('fa-regular');
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* ================= AUTO MUSIC ON VIEW ================= */
+    /* ================= MUSIC ================= */
     const posts = document.querySelectorAll('.ig-post');
     const audios = new Map();
 
@@ -56,13 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.loop = true;
         audio.volume = 0.8;
 
+        const icon = music.querySelector('.music-icon');
         audios.set(post, audio);
 
-        const icon = music.querySelector('.music-icon');
-
         icon.addEventListener('click', () => {
+            userInteracted = true;
+
             if (audio.paused) {
-                stopAllAudio();
+                stopAll();
                 audio.play();
                 icon.classList.add('active');
             } else {
@@ -72,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    function stopAllAudio() {
+    function stopAll() {
         audios.forEach((audio, post) => {
             audio.pause();
             const icon = post.querySelector('.music-icon');
@@ -80,31 +81,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* ================= OBSERVER – CENTER OF SCREEN ================= */
+    /* ================= AUTOPLAY ON SCROLL ================= */
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             const post = entry.target;
             const audio = audios.get(post);
             const icon = post.querySelector('.music-icon');
+            if (!audio || !userInteracted) return;
 
-            if (!audio) return;
-
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
-                stopAllAudio();
+            if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+                stopAll();
                 audio.play().catch(() => {});
-                if (icon) icon.classList.add('active');
+                icon?.classList.add('active');
             } else {
                 audio.pause();
-                if (icon) icon.classList.remove('active');
+                icon?.classList.remove('active');
             }
         });
-    }, {
-        threshold: [0.6]
-    });
+    }, { threshold: 0.6 });
 
     audios.forEach((_, post) => observer.observe(post));
-
 });
+
 
 
 
