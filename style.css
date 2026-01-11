@@ -165,7 +165,10 @@ body {
     margin-right: 10px;
     cursor: pointer;
 }
-
+/* ================= LIKE ================= */
+.like-btn.liked {
+    color: #ff3040;
+}
 /* ================= POST TEXT ================= */
 .post-text {
     padding: 0 12px 12px;
@@ -281,6 +284,7 @@ body.light .slide-btn {
     background: rgba(255, 255, 255, 0.7);
     color: #000;
 }
+
 
 
 
