@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* ================= SLIDER ================= */
-    const slider = document.querySelector('.slider');
-    if (slider) {
+    /* ========== SLIDERS (ALL POSTS) ========== */
+    document.querySelectorAll('.slider').forEach(slider => {
         const slides = slider.querySelectorAll('.slide');
         const nextBtn = slider.querySelector('.next');
         const prevBtn = slider.querySelector('.prev');
@@ -23,20 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
             current = (current - 1 + slides.length) % slides.length;
             showSlide(current);
         });
-    }
+    });
 
-    /* ================= THEME TOGGLE ================= */
+    /* ========== THEME TOGGLE ========== */
     const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light');
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light');
+        themeToggle.classList.toggle('fa-moon');
+        themeToggle.classList.toggle('fa-sun');
+    });
 
-            themeToggle.classList.toggle('fa-moon');
-            themeToggle.classList.toggle('fa-sun');
-        });
-    }
-
-    /* ================= LIKE BUTTON ================= */
+    /* ========== LIKE BUTTON ========== */
     document.querySelectorAll('.like-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             btn.classList.toggle('fa-regular');
@@ -46,5 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+
 
 
