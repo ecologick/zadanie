@@ -25,17 +25,26 @@ color:var(--text-light);
 }
 
 .ig-app{display:flex}
+/* ================= SIDEBAR BASE (BRAKUJĄCE STYLE) ================= */
 
-/* ================= LEFT SIDEBAR – VISUAL IMPROVEMENTS ================= */
-
-.ig-sidebar {
-    background: linear-gradient(
+.ig-sidebar{
+    width:240px;
+    min-height:100vh;
+    padding:20px;
+     background: linear-gradient(
         180deg,
         #1e2128 0%,
         #1b1e25 100%
     );
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
+    border-right:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
 }
+
+
+/* ================= LEFT SIDEBAR – VISUAL IMPROVEMENTS ================= */
+
 
 /* LOGO */
 .ig-logo {
@@ -212,6 +221,7 @@ padding:12px 14px;
 .like-btn.liked{color:var(--accent)}
 
 .post-text{padding:0 14px 14px}
+
 
 
 
