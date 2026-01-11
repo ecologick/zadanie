@@ -22,8 +22,8 @@
 
 /* ================= BODY ================= */
 body{
-    height: 100vh;
-    overflow: hidden; /* 🔴 BARDZO WAŻNE */
+    min-height: 100vh;
+    overflow-y: auto;
     background: var(--bg);
     color: var(--text);
     font-family: Arial, Helvetica, sans-serif;
@@ -38,7 +38,7 @@ body.light{
 /* ================= APP ================= */
 .ig-app{
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* ================= SIDEBAR (FIXED) ================= */
@@ -56,12 +56,8 @@ body.light{
 
     display: flex;
     flex-direction: column;
-
-    z-index: 99999;          /* 🔴 KLUCZ */
-    pointer-events: auto;   /* 🔴 */
+    z-index: 1000;
 }
-
-
 
 /* LOGO */
 .ig-logo{
@@ -112,21 +108,16 @@ body.light{
     font-size: 18px;
 }
 
-/* ================= FEED (SCROLL ONLY HERE) ================= */
+/* ================= FEED ================= */
 .ig-feed{
     margin-left: 240px;
     flex: 1;
-
-    height: 100vh;        /* 🔴 MUSI BYĆ */
-    overflow-y: auto;    /* 🔴 TU JEST SCROLL */
+    min-height: 100vh;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px;
-
-    position: relative;
-    z-index: 1;
 }
 
 /* ================= STORIES ================= */
@@ -276,23 +267,15 @@ body.light .ig-theme-toggle i{
 
 /* ================= MOBILE ================= */
 @media(max-width:768px){
-    body{
-        overflow: auto;
-    }
-
     .ig-sidebar{
         display: none;
     }
 
     .ig-feed{
         margin-left: 0;
-        height: auto;
-        overflow: visible;
         padding-bottom: 80px;
     }
 }
-
-
 
 
 
