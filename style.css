@@ -270,6 +270,20 @@ body.light .ig-post{
 @media(max-width:768px){
     .ig-sidebar{display:none}
 }
+/* ================= FIXED SIDEBAR ================= */
+.ig-sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* odsunięcie feedu o szerokość sidebara */
+.ig-feed{
+    margin-left: 240px;
+}
+
 
 
 
