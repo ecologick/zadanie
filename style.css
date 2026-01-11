@@ -281,6 +281,31 @@ body.light .slide-btn {
     background: rgba(255, 255, 255, 0.7);
     color: #000;
 }
+/* ================= THEME TOGGLE (ICON ONLY) ================= */
+.ig-theme-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 12px 0;
+    border-bottom: 1px solid #222;
+    cursor: pointer;
+}
+
+.ig-theme-toggle i {
+    font-size: 22px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.ig-theme-toggle i:hover {
+    transform: scale(1.15);
+}
+
+/* light mode border fix */
+body.light .ig-theme-toggle {
+    border-color: #ddd;
+}
+
 
 
 
