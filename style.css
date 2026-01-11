@@ -116,15 +116,17 @@ body.light{
 .ig-feed{
     margin-left: 240px;
     flex: 1;
-    height: 100vh;
-    overflow-y: auto; /* ✅ TYLKO TU SCROLL */
+
+    height: 100vh;        /* 🔴 MUSI BYĆ */
+    overflow-y: auto;    /* 🔴 TU JEST SCROLL */
+
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px;
-    
-    position: relative; /* 🔴 */
-    z-index: 1;         /* 🔴 */
+
+    position: relative;
+    z-index: 1;
 }
 
 /* ================= STORIES ================= */
@@ -289,6 +291,7 @@ body.light .ig-theme-toggle i{
         padding-bottom: 80px;
     }
 }
+
 
 
 
