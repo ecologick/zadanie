@@ -1,6 +1,4 @@
-/* =========================
-   RESET
-========================= */
+/* ================= RESET ================= */
 * {
     margin: 0;
     padding: 0;
@@ -8,41 +6,38 @@
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: #fafafa;
-    color: #262626;
+    background: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* =========================
-   APP LAYOUT
-========================= */
+/* ================= APP LAYOUT ================= */
 .ig-app {
-    display: grid;
-    grid-template-columns: 240px 1fr 320px;
+    display: flex;
     min-height: 100vh;
 }
 
-/* =========================
-   LEFT SIDEBAR
-========================= */
+/* ================= LEFT SIDEBAR ================= */
 .ig-sidebar {
-    border-right: 1px solid #dbdbdb;
-    padding: 24px;
+    width: 240px;
+    padding: 20px;
+    border-right: 1px solid #222;
 }
 
 .ig-logo {
     font-family: cursive;
     font-size: 28px;
-    margin-bottom: 32px;
+    margin-bottom: 30px;
 }
 
 .ig-nav a {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 15px;
     padding: 12px 0;
-    font-size: 16px;
     cursor: pointer;
+    color: #fff;
+    text-decoration: none;
 }
 
 .ig-nav i {
@@ -53,231 +48,182 @@ body {
     margin-top: auto;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     cursor: pointer;
 }
 
-/* =========================
-   FEED
-========================= */
+/* ================= FEED ================= */
 .ig-feed {
-    padding: 24px;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    align-items: center;
+    padding: 30px 0;
 }
 
-/* =========================
-   STORIES
-========================= */
+/* ================= STORIES ================= */
 .ig-stories {
     display: flex;
-    gap: 16px;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
 .story {
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background: linear-gradient(45deg, #fd1d1d, #fcb045);
+    background: linear-gradient(45deg, #ff00ff, #ff9900);
 }
 
-/* =========================
-   POST
-========================= */
+/* ================= POST ================= */
 .ig-post {
-    background: white;
-    border: 1px solid #dbdbdb;
-    border-radius: 8px;
-
-    max-width: 470px;   /* 👈 szerokość jak Instagram */
     width: 100%;
-    margin: 0 auto;     /* 👈 wyśrodkowanie */
+    max-width: 600px;
+    border: 1px solid #222;
+    margin-bottom: 40px;
+    background: #000;
 }
 
-
+/* ================= POST HEADER ================= */
 .post-header {
     display: flex;
     align-items: center;
-    gap: 12px;
     padding: 12px;
 }
 
-.avatar {
-    width: 32px;
-    height: 32px;
-    background: #ccc;
+.post-header .avatar {
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
+    background: #333;
+    margin-right: 10px;
 }
 
 .username {
-    font-weight: 600;
+    flex: 1;
+    font-weight: bold;
 }
 
-.post-header i {
-    margin-left: auto;
-    cursor: pointer;
-}
-
-/* =========================
-   SLIDER
-========================= */
-.slider {
+/* ================= SLIDER ================= */
+.post-image.slider {
     position: relative;
     width: 100%;
     aspect-ratio: 1 / 1;
-    background: #000;
     overflow: hidden;
+    background: #000;
 }
 
-.slider img {
+/* wszystkie slajdy */
+.post-image.slider .slide {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
 }
 
-/* slides */
-.slide {
-    position: absolute;
-    inset: 0;
-    display: none;
+/* aktywny slajd */
+.post-image.slider .slide.active {
+    opacity: 1;
+    z-index: 1;
 }
 
-.slide.active {
-    display: block;
-}
-
-/* slider buttons */
+/* przyciski */
 .slide-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.6);
-    color: white;
+    background: rgba(0, 0, 0, 0.6);
     border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    z-index: 2;
 }
 
 .slide-btn.prev {
-    left: 12px;
+    left: 10px;
 }
 
 .slide-btn.next {
-    right: 12px;
+    right: 10px;
 }
 
-.slide-btn:hover {
-    background: rgba(0,0,0,0.85);
-}
-
-/* =========================
-   POST ACTIONS
-========================= */
+/* ================= POST ACTIONS ================= */
 .post-actions {
     display: flex;
     justify-content: space-between;
-    padding: 12px;
-}
-
-.post-actions .left {
-    display: flex;
-    gap: 16px;
+    padding: 10px 12px;
 }
 
 .post-actions i {
-    font-size: 22px;
+    font-size: 20px;
+    margin-right: 10px;
     cursor: pointer;
 }
 
-.liked {
-    color: #ed4956;
-}
-
-/* =========================
-   POST TEXT
-========================= */
+/* ================= POST TEXT ================= */
 .post-text {
     padding: 0 12px 12px;
     font-size: 14px;
 }
 
-/* =========================
-   RIGHT PANEL
-========================= */
+/* ================= RIGHT PANEL ================= */
 .ig-right {
-    padding: 24px;
+    width: 300px;
+    padding: 30px;
 }
 
 .ig-profile {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.ig-profile .avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #333;
 }
 
 .suggestions-title {
-    margin: 24px 0 12px;
-    color: #8e8e8e;
+    margin-bottom: 15px;
     font-size: 14px;
+    color: #aaa;
 }
 
 .suggestion {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
-.avatar.small {
-    width: 28px;
-    height: 28px;
+.suggestion .avatar.small {
+    width: 32px;
+    height: 32px;
 }
 
 .suggestion button {
-    margin-left: auto;
     background: none;
     border: none;
     color: #0095f6;
     cursor: pointer;
 }
 
-/* =========================
-   MOBILE NAV
-========================= */
+/* ================= MOBILE NAV ================= */
 .ig-mobile-nav {
     display: none;
 }
 
-/* =========================
-   DARK MODE
-========================= */
-body.dark {
-    background: #000;
-    color: #fff;
-}
-
-body.dark .ig-sidebar,
-body.dark .ig-post,
-body.dark .ig-right {
-    background: #000;
-    border-color: #333;
-}
-
-body.dark .ig-post {
-    background: #000;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 1100px) {
-    .ig-app {
-        grid-template-columns: 240px 1fr;
-    }
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1000px) {
     .ig-right {
         display: none;
     }
@@ -287,20 +233,27 @@ body.dark .ig-post {
     .ig-sidebar {
         display: none;
     }
-    .ig-app {
-        grid-template-columns: 1fr;
+
+    .ig-feed {
+        padding-bottom: 80px;
     }
+
     .ig-mobile-nav {
         display: flex;
         justify-content: space-around;
-        padding: 12px;
-        border-top: 1px solid #dbdbdb;
         position: fixed;
         bottom: 0;
         width: 100%;
-        background: white;
+        background: #000;
+        border-top: 1px solid #222;
+        padding: 10px 0;
+    }
+
+    .ig-mobile-nav i {
+        font-size: 22px;
     }
 }
+
 
 
 
