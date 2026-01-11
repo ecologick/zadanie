@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+/* ================= BODY ================= */
 body {
     background: #000;
     color: #fff;
@@ -22,6 +23,8 @@ body {
     width: 240px;
     padding: 20px;
     border-right: 1px solid #222;
+    display: flex;
+    flex-direction: column;
 }
 
 .ig-logo {
@@ -113,25 +116,21 @@ body {
     background: #000;
 }
 
-/* wszystkie slajdy */
 .post-image.slider .slide {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
 }
 
-/* aktywny slajd */
 .post-image.slider .slide.active {
     opacity: 1;
     z-index: 1;
 }
 
-/* przyciski */
 .slide-btn {
     position: absolute;
     top: 50%;
@@ -145,13 +144,8 @@ body {
     z-index: 2;
 }
 
-.slide-btn.prev {
-    left: 10px;
-}
-
-.slide-btn.next {
-    right: 10px;
-}
+.slide-btn.prev { left: 10px; }
+.slide-btn.next { right: 10px; }
 
 /* ================= POST ACTIONS ================= */
 .post-actions {
@@ -165,10 +159,12 @@ body {
     margin-right: 10px;
     cursor: pointer;
 }
+
 /* ================= LIKE ================= */
 .like-btn.liked {
     color: #ff3040;
 }
+
 /* ================= POST TEXT ================= */
 .post-text {
     padding: 0 12px 12px;
@@ -256,6 +252,7 @@ body {
         font-size: 22px;
     }
 }
+
 /* ================= LIGHT MODE ================= */
 body.light {
     background: #fff;
