@@ -22,9 +22,14 @@ document.body.classList.toggle('light')
 }
 
 /* LIKES */
-document.querySelectorAll('.like-btn').forEach(b=>{
-b.onclick=()=>b.classList.toggle('liked')
-})
+document.querySelectorAll('.like-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.classList.toggle('fa-regular');
+        btn.classList.toggle('fa-solid');
+        btn.classList.toggle('liked');
+    });
+});
+
 
 /* MUSIC */
 const audios=[]
@@ -65,6 +70,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.4 });
 
 document.querySelectorAll('.ig-post').forEach(post => observer.observe(post));
+
 
 
 
