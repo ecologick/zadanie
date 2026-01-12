@@ -255,6 +255,10 @@ body.light .ig-nav a:hover{
     padding:12px 14px;
     font-size:14px;
 }
+.post-actions .left .like-count{
+    font-size:14.5px;
+    font-weight:600;
+}
 
 .like-btn{
     color:var(--muted);
@@ -349,6 +353,16 @@ body.light .post-image{
         font-size:16px;
     }
 }
+@media(max-width:768px){
+    .post-actions .left i{
+        font-size:24px;
+    }
+
+    .post-actions .left .like-count{
+        font-size:15.5px;
+    }
+}
+
 
 
 
