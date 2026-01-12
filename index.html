@@ -12,12 +12,10 @@
 
 <div class="ig-app">
 
-<!-- SIDEBAR DESKTOP -->
 <aside class="ig-sidebar">
     <div class="ig-logo">Instagram</div>
-
-    <div class="ig-theme-toggle" id="themeToggle">
-        <i class="fa-solid fa-moon"></i>
+    <div class="ig-theme-toggle">
+        <i class="fa-solid fa-moon" id="themeToggle"></i>
     </div>
 
     <nav class="ig-nav">
@@ -32,11 +30,10 @@
     </nav>
 </aside>
 
-<!-- FEED -->
 <main class="ig-feed">
 
+<!-- POST -->
 <article class="ig-post">
-
 <header class="post-header">
     <div class="avatar"></div>
     <span class="username">Natalia Habowska</span>
@@ -44,7 +41,6 @@
 </header>
 
 <div class="post-image slider">
-
     <img src="bezrobocie1.png" class="slide active">
     <img src="bezrobocie2.png" class="slide">
     <img src="bezrobocie3.png" class="slide">
@@ -52,11 +48,13 @@
     <button class="slide-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
     <button class="slide-btn next"><i class="fa-solid fa-chevron-right"></i></button>
 
+    <!-- dots -->
+    <div class="slide-dots"></div>
+
     <!-- AUDIO -->
     <div class="post-music" data-audio="slide1.mp3">
         <i class="fa-solid fa-volume-high music-icon"></i>
     </div>
-
 </div>
 
 <div class="post-actions">
@@ -77,15 +75,29 @@
 
 <!-- MOBILE BOTTOM NAV -->
 <nav class="ig-bottom-nav">
-    <i class="fa-solid fa-house"></i>
-    <i class="fa-regular fa-compass"></i>
+    <div class="nav-item">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+    </div>
+
+    <div class="nav-item">
+        <i class="fa-regular fa-compass"></i>
+        <span>Explore</span>
+    </div>
 
     <div class="mobile-theme-toggle" id="mobileThemeToggle">
         <i class="fa-solid fa-moon"></i>
     </div>
 
-    <i class="fa-regular fa-heart"></i>
-    <i class="fa-regular fa-user"></i>
+    <div class="nav-item">
+        <i class="fa-regular fa-heart"></i>
+        <span>Likes</span>
+    </div>
+
+    <div class="nav-item">
+        <i class="fa-regular fa-user"></i>
+        <span>Profile</span>
+    </div>
 </nav>
 
 <script src="script.js"></script>
