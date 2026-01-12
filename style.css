@@ -189,6 +189,7 @@ body.light{
 
 .username{
     font-weight:bold;
+    font-family:cursive;
     flex:1;
 }
 
@@ -382,6 +383,7 @@ body.light .ig-theme-toggle i{
         padding-bottom:110px;
     }
 }
+
 
 
 
