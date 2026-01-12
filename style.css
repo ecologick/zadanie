@@ -233,6 +233,18 @@ body.light{
 
 .prev{ left:12px; }
 .next{ right:12px; }
+.like-count{
+    margin: 0 10px 0 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    user-select: none;
+}
+
+body.light .like-count{
+    color: var(--text-light);
+}
+
 
 
 /* ================= MUSIC ================= */
@@ -383,6 +395,7 @@ body.light .ig-theme-toggle i{
         padding-bottom:110px;
     }
 }
+
 
 
 
