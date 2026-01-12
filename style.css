@@ -153,6 +153,20 @@ body.light{
 .prev{left:12px}
 .next{right:12px}
 
+.like-btn{
+    color:var(--muted);
+    transition:color .25s ease, transform .15s ease;
+}
+
+.like-btn:hover{
+    transform:scale(1.1);
+}
+
+.like-btn.liked{
+    color:var(--accent);
+}
+
+
 /* DOTS */
 .slide-dots{
     position:absolute;
@@ -280,6 +294,7 @@ body.light .music-icon{
         border-top:1px solid var(--border-light);
     }
 }
+
 
 
 
