@@ -271,22 +271,52 @@ body.light .like-count{
 
 
 /* ================= MUSIC ================= */
+/* ================= MUSIC ICON ================= */
 .post-music{
     position:absolute;
-    top:12px;
-    right:12px;
+    left:12px;
+    bottom:12px;
+    z-index:10;
 }
 
 .music-icon{
-    background:rgba(0,0,0,.6);
-    padding:10px;
+    width:42px;
+    height:42px;
     border-radius:50%;
+
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(6px);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:18px;
+    color:#fff;
+
     cursor:pointer;
+    transition:.25s ease;
+}
+
+.music-icon:hover{
+    transform:scale(1.1);
 }
 
 .music-icon.active{
     color:var(--accent);
+    box-shadow:0 0 0 3px rgba(255,48,64,.35);
 }
+
+/* TRYB JASNY */
+body.light .music-icon{
+    background:rgba(255,255,255,.75);
+    color:#3b2f23;
+}
+
+body.light .music-icon.active{
+    color:#ff3040;
+}
+
 
 /* ================= ACTIONS ================= */
 .post-actions{
@@ -418,6 +448,7 @@ body.light .ig-theme-toggle i{
         padding-bottom:110px;
     }
 }
+
 
 
 
