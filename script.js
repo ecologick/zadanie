@@ -1,83 +1,86 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',()=>{
 
-/* ===== SLIDER ===== */
-document.querySelectorAll('.slider').forEach(slider => {
-    const slides = slider.querySelectorAll('.slide');
-    let index = 0;
+/* THEME */
+const toggleTheme=()=>document.body.classList.toggle('light');
+document.getElementById('themeToggle')?.addEventListener('click',toggleTheme);
+document.getElementById('mobileThemeToggle')?.addEventListener('click',toggleTheme);
 
-    slider.querySelector('.next').onclick = () => {
-        slides[index].classList.remove('active');
-        index = (index + 1) % slides.length;
-        slides[index].classList.add('active');
-    };
+/* SLIDER + DOTS + SWIPE */
+document.querySelectorAll('.slider').forEach(slider=>{
+ const slides=[...slider.querySelectorAll('.slide')];
+ const dots=slider.querySelector('.slide-dots');
+ let i=0,startX=0;
 
-    slider.querySelector('.prev').onclick = () => {
-        slides[index].classList.remove('active');
-        index = (index - 1 + slides.length) % slides.length;
-        slides[index].classList.add('active');
-    };
+ slides.forEach((_,idx)=>{
+  const d=document.createElement('span');
+  if(idx===0)d.classList.add('active');
+  dots.appendChild(d);
+ });
+
+ const update=()=>{
+  slides.forEach(s=>s.classList.remove('active'));
+  dots.querySelectorAll('span').forEach(d=>d.classList.remove('active'));
+  slides[i].classList.add('active');
+  dots.children[i].classList.add('active');
+ };
+
+ slider.querySelector('.next').onclick=()=>{i=(i+1)%slides.length;update()};
+ slider.querySelector('.prev').onclick=()=>{i=(i-1+slides.length)%slides.length;update()};
+
+ slider.addEventListener('touchstart',e=>startX=e.touches[0].clientX);
+ slider.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-startX;
+  if(Math.abs(dx)>50){
+   i=dx<0?(i+1)%slides.length:(i-1+slides.length)%slides.length;
+   update();
+  }
+ });
 });
 
-/* ===== THEME ===== */
-document.getElementById('themeToggle').onclick =
-document.getElementById('mobileThemeToggle').onclick = () => {
-    document.body.classList.toggle('light');
-};
-
-/* ===== LIKES ===== */
-document.querySelectorAll('.like-btn').forEach(btn => {
-    btn.onclick = () => {
-        btn.classList.toggle('fa-regular');
-        btn.classList.toggle('fa-solid');
-        btn.classList.toggle('liked');
-    };
+/* LIKES */
+document.querySelectorAll('.like-btn').forEach(b=>{
+ b.onclick=()=>{
+  b.classList.toggle('fa-solid');
+  b.classList.toggle('fa-regular');
+  b.classList.toggle('liked');
+ };
 });
 
-/* ===== MUSIC ===== */
-let active = null;
+/* AUDIO */
+let active=null;
+document.querySelectorAll('.post-music').forEach(m=>{
+ const icon=m.querySelector('.music-icon');
+ const audio=new Audio(m.dataset.audio);
+ audio.loop=true;audio.playsInline=true;
 
-document.querySelectorAll('.post-music').forEach(music => {
-    const icon = music.querySelector('.music-icon');
-    const audio = new Audio(music.dataset.audio);
-    const post = music.closest('.ig-post');
-
-    audio.loop = true;
-    audio.playsInline = true;
-
-    icon.onclick = () => {
-
-        if (active && active !== music) {
-            active.audio.pause();
-            active.querySelector('.music-icon').classList.remove('active');
-        }
-
-        if (!audio.paused) {
-            audio.pause();
-            icon.classList.remove('active');
-            active = null;
-        } else {
-            audio.play().catch(()=>{});
-            icon.classList.add('active');
-            active = { audio, post, icon };
-        }
-    };
+ icon.onclick=()=>{
+  if(active&&active!==audio){
+   active.pause();
+   document.querySelector('.music-icon.active')?.classList.remove('active');
+  }
+  if(audio.paused){
+   audio.play().catch(()=>{});
+   icon.classList.add('active');
+   active=audio;
+  }else{
+   audio.pause();
+   icon.classList.remove('active');
+   active=null;
+  }
+ };
 });
 
-/* ===== AUTO PAUSE ON SCROLL ===== */
-window.addEventListener('scroll', () => {
-    if (!active) return;
-
-    const rect = active.post.getBoundingClientRect();
-    const h = window.innerHeight;
-
-    if (rect.bottom < h * 0.3 || rect.top > h * 0.7) {
-        active.audio.pause();
-        active.icon.classList.remove('active');
-        active = null;
-    }
+/* AUTO PAUSE */
+window.addEventListener('scroll',()=>{
+ if(!active)return;
+ active.pause();
+ document.querySelector('.music-icon.active')?.classList.remove('active');
+ active=null;
 });
 
 });
+
+
 
 
 
