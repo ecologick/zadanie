@@ -195,22 +195,38 @@ body.light{
 
 /* ================= SLIDER ================= */
 .post-image{
-    position:relative;
-    width:100%;
-    aspect-ratio:1/1;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #000; /* wypełnienie dla poziomych zdjęć */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.light .post-image{
+    background: #e9e1d4; /* ciepły beż w trybie dzień */
 }
 
 .slide{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    opacity:0;
-    transition:.3s;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;   /* 🔥 KLUCZ */
+    object-position: center;
+
+    opacity: 0;
+    transition: opacity .3s ease;
 }
 
-.slide.active{opacity:1}
+.slide.active{
+    opacity: 1;
+    z-index: 1;
+}
+
 .post-image{
     position:relative;
     width:100%;
@@ -395,6 +411,7 @@ body.light .ig-theme-toggle i{
         padding-bottom:110px;
     }
 }
+
 
 
 
