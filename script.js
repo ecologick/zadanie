@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-/* ================= SLIDER ================= */
+/* ===== SLIDER ===== */
 document.querySelectorAll('.slider').forEach(slider => {
     const slides = slider.querySelectorAll('.slide');
     let index = 0;
@@ -18,13 +18,13 @@ document.querySelectorAll('.slider').forEach(slider => {
     };
 });
 
-/* ================= THEME ================= */
+/* ===== THEME ===== */
 document.getElementById('themeToggle').onclick =
 document.getElementById('mobileThemeToggle').onclick = () => {
     document.body.classList.toggle('light');
 };
 
-/* ================= LIKES ================= */
+/* ===== LIKES ===== */
 document.querySelectorAll('.like-btn').forEach(btn => {
     btn.onclick = () => {
         btn.classList.toggle('fa-regular');
@@ -33,8 +33,7 @@ document.querySelectorAll('.like-btn').forEach(btn => {
     };
 });
 
-/* ================= MUSIC (FIXED, MOBILE SAFE) ================= */
-
+/* ===== MUSIC ===== */
 let active = null;
 
 document.querySelectorAll('.post-music').forEach(music => {
@@ -43,18 +42,12 @@ document.querySelectorAll('.post-music').forEach(music => {
     const post = music.closest('.ig-post');
 
     audio.loop = true;
-    audio.preload = 'auto';
     audio.playsInline = true;
-
-    music.audio = audio;
-    music.post = post;
 
     icon.onclick = () => {
 
-        /* pause other */
         if (active && active !== music) {
             active.audio.pause();
-            active.audio.currentTime = 0;
             active.querySelector('.music-icon').classList.remove('active');
         }
 
@@ -63,15 +56,14 @@ document.querySelectorAll('.post-music').forEach(music => {
             icon.classList.remove('active');
             active = null;
         } else {
-            audio.play().catch(() => {});
+            audio.play().catch(()=>{});
             icon.classList.add('active');
-            active = music;
+            active = { audio, post, icon };
         }
     };
 });
 
-/* ================= AUTO PAUSE ON SCROLL ================= */
-
+/* ===== AUTO PAUSE ON SCROLL ===== */
 window.addEventListener('scroll', () => {
     if (!active) return;
 
@@ -80,13 +72,14 @@ window.addEventListener('scroll', () => {
 
     if (rect.bottom < h * 0.3 || rect.top > h * 0.7) {
         active.audio.pause();
-        active.audio.currentTime = 0;
-        active.querySelector('.music-icon').classList.remove('active');
+        active.icon.classList.remove('active');
         active = null;
     }
 });
 
 });
+
+
 
 
 
