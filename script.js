@@ -35,28 +35,7 @@ document.querySelectorAll('.like-btn').forEach(btn => {
     };
 });
 
-/* MUSIC (mobile-safe) */
-const audios = [];
-
-document.querySelectorAll('.post-music').forEach(m => {
-    const audio = new Audio(m.dataset.audio);
-    audio.loop = true;
-
-    const icon = m.querySelector('.music-icon');
-    audios.push({ audio, icon });
-
-    icon.onclick = () => {
-        audios.forEach(a => {
-            a.audio.pause();
-            a.icon.classList.remove('active');
-        });
-
-        audio.play();
-        icon.classList.add('active');
-    };
-});
-
-});
+dodać auto-pause przy scrollu (mobile-safe)
 
 
 
