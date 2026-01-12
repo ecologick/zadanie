@@ -230,6 +230,13 @@ body.light{
     background:rgba(255,255,255,.4);
 }
 
+.post-text{
+    padding:6px 16px 16px 16px;
+    font-size:14px;
+    line-height:1.45;
+}
+
+
 .slide-dots span.active{background:#fff}
 
 /* ================= MUSIC ================= */
@@ -352,6 +359,12 @@ body.light .music-icon{
         justify-content:center;
         transform:translateY(-18px);
         box-shadow:0 10px 20px rgba(0,0,0,.35);
+    }
+}
+@media(max-width:768px){
+    .post-text{
+        padding-left:18px;
+        padding-right:18px;
     }
 }
 
