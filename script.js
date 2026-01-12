@@ -3,113 +3,90 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ================= SLIDER ================= */
 document.querySelectorAll('.slider').forEach(slider => {
     const slides = slider.querySelectorAll('.slide');
-    const next = slider.querySelector('.next');
-    const prev = slider.querySelector('.prev');
-
-    if (!slides.length || !next || !prev) return;
-
     let index = 0;
 
-    next.addEventListener('click', () => {
+    slider.querySelector('.next').onclick = () => {
         slides[index].classList.remove('active');
         index = (index + 1) % slides.length;
         slides[index].classList.add('active');
-    });
+    };
 
-    prev.addEventListener('click', () => {
+    slider.querySelector('.prev').onclick = () => {
         slides[index].classList.remove('active');
         index = (index - 1 + slides.length) % slides.length;
         slides[index].classList.add('active');
-    });
+    };
 });
 
 /* ================= THEME ================= */
-document.getElementById('themeToggle').onclick = () => {
+document.getElementById('themeToggle').onclick =
+document.getElementById('mobileThemeToggle').onclick = () => {
     document.body.classList.toggle('light');
 };
 
 /* ================= LIKES ================= */
 document.querySelectorAll('.like-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.onclick = () => {
         btn.classList.toggle('fa-regular');
         btn.classList.toggle('fa-solid');
         btn.classList.toggle('liked');
-    });
+    };
 });
 
-/* ================= MUSIC (MOBILE SAFE) ================= */
+/* ================= MUSIC (FIXED, MOBILE SAFE) ================= */
 
-let activeAudio = null;
-let activeIcon = null;
-let activePost = null;
+let active = null;
 
 document.querySelectorAll('.post-music').forEach(music => {
     const icon = music.querySelector('.music-icon');
-    const src = music.dataset.audio;
+    const audio = new Audio(music.dataset.audio);
     const post = music.closest('.ig-post');
 
-    icon.addEventListener('click', () => {
+    audio.loop = true;
+    audio.preload = 'auto';
+    audio.playsInline = true;
 
-        /* stop poprzedniego */
-        if (activeAudio) {
-            activeAudio.pause();
-            activeAudio.currentTime = 0;
-            activeIcon.classList.remove('active');
+    music.audio = audio;
+    music.post = post;
+
+    icon.onclick = () => {
+
+        /* pause other */
+        if (active && active !== music) {
+            active.audio.pause();
+            active.audio.currentTime = 0;
+            active.querySelector('.music-icon').classList.remove('active');
         }
 
-        /* klik w ten sam post */
-        if (activePost === post) {
-            activeAudio = null;
-            activeIcon = null;
-            activePost = null;
-            return;
+        if (!audio.paused) {
+            audio.pause();
+            icon.classList.remove('active');
+            active = null;
+        } else {
+            audio.play().catch(() => {});
+            icon.classList.add('active');
+            active = music;
         }
-
-        /* mobile-safe audio */
-        const audio = new Audio(src);
-        audio.loop = true;
-        audio.muted = false;
-        audio.playsInline = true;
-
-        audio.play().catch(() => {});
-
-        icon.classList.add('active');
-        activeAudio = audio;
-        activeIcon = icon;
-        activePost = post;
-    });
+    };
 });
 
-/* ================= AUTO PAUSE ON SCROLL (MOBILE SAFE) ================= */
+/* ================= AUTO PAUSE ON SCROLL ================= */
 
 window.addEventListener('scroll', () => {
-    if (!activeAudio || !activePost) return;
+    if (!active) return;
 
-    const rect = activePost.getBoundingClientRect();
-    const viewHeight = window.innerHeight;
+    const rect = active.post.getBoundingClientRect();
+    const h = window.innerHeight;
 
-    /* jeśli post wyszedł z ekranu */
-    if (rect.bottom < viewHeight * 0.3 || rect.top > viewHeight * 0.7) {
-        activeAudio.pause();
-        activeAudio.currentTime = 0;
-        activeIcon.classList.remove('active');
-
-        activeAudio = null;
-        activeIcon = null;
-        activePost = null;
+    if (rect.bottom < h * 0.3 || rect.top > h * 0.7) {
+        active.audio.pause();
+        active.audio.currentTime = 0;
+        active.querySelector('.music-icon').classList.remove('active');
+        active = null;
     }
 });
 
 });
-/* ================= MOBILE THEME TOGGLE ================= */
-const mobileToggle = document.getElementById('mobileThemeToggle');
-
-if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light');
-    });
-}
-
 
 
 
