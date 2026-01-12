@@ -1,183 +1,213 @@
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box}
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-/* VARIABLES */
+/* ================= VARIABLES ================= */
 :root{
- --bg:#1f2229;
- --panel:#262a33;
- --text:#e4e6eb;
- --accent:#ff3040;
+    --bg:#1f2229;
+    --panel:#262a33;
+    --text:#e4e6eb;
+    --accent:#ff3040;
 
- --bg-light:#f3ede4;
- --panel-light:#fbf8f3;
- --text-light:#3b2f23;
+    --bg-light:#f3ede4;
+    --panel-light:#fbf8f3;
+    --text-light:#3b2f23;
 }
 
-/* BODY */
+/* ================= BODY ================= */
 body{
- background:var(--bg);
- color:var(--text);
- font-family:Arial,Helvetica,sans-serif;
- overflow-y:auto;
- transition:.4s;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-y:auto;
+    transition:background .4s ease, color .4s ease;
 }
+
 body.light{
- background:linear-gradient(#f3ede4,#efe5d8);
- color:var(--text-light);
+    background:linear-gradient(#f3ede4,#efe5d8);
+    color:var(--text-light);
 }
 
-/* LAYOUT */
-.ig-app{display:flex;min-height:100vh}
+/* ================= LAYOUT ================= */
+.ig-app{
+    display:flex;
+    min-height:100vh;
+}
+
 .ig-feed{
- margin-left:240px;
- width:100%;
- display:flex;
- flex-direction:column;
- align-items:center;
- padding:30px;
+    margin-left:240px;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:30px;
 }
 
-/* SIDEBAR */
+/* ================= SIDEBAR ================= */
 .ig-sidebar{
- position:fixed;
- width:240px;
- height:100vh;
- padding:20px;
- background:#1e2128;
+    position:fixed;
+    top:0;
+    left:0;
+    width:240px;
+    height:100vh;
+    padding:20px;
+    background:#1e2128;
 }
 
-/* POST */
+/* ================= POST ================= */
 .ig-post{
- width:100%;
- max-width:600px;
- background:var(--panel);
- border-radius:18px;
- margin-bottom:40px;
- overflow:hidden;
+    width:100%;
+    max-width:600px;
+    background:var(--panel);
+    border-radius:18px;
+    margin-bottom:40px;
+    overflow:hidden;
 }
 
-/* SLIDER */
+body.light .ig-post{
+    background:var(--panel-light);
+}
+
+/* ================= SLIDER ================= */
 .post-image{
- position:relative;
- aspect-ratio:1/1;
- background:#1f2229;
+    position:relative;
+    width:100%;
+    aspect-ratio:1 / 1;
+    background:#1f2229;
+    overflow:hidden;
+}
+
+body.light .post-image{
+    background:#e9e1d4;
 }
 
 .slide{
- position:absolute;
- inset:0;
- width:100%;
- height:100%;
- object-fit:contain;
- opacity:0;
- transition:opacity .35s ease;
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    opacity:0;
+    transition:opacity .35s ease;
 }
-.slide.active{opacity:1}
 
-/* DOTS */
+.slide.active{
+    opacity:1;
+}
+
+/* ================= DOTS ================= */
 .slide-dots{
- position:absolute;
- top:12px;
- right:12px;
- display:flex;
- gap:6px;
+    position:absolute;
+    top:12px;
+    right:12px;
+    display:flex;
+    gap:6px;
 }
+
 .slide-dots span{
- width:7px;
- height:7px;
- border-radius:50%;
- background:rgba(255,255,255,.4);
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:rgba(255,255,255,.4);
 }
-.slide-dots span.active{background:#fff}
 
-/* SLIDER BUTTONS */
+.slide-dots span.active{
+    background:#fff;
+}
+
+/* ================= SLIDER BUTTONS ================= */
 .slide-btn{
- position:absolute;
- top:50%;
- transform:translateY(-50%);
- background:rgba(0,0,0,.55);
- border:none;
- color:#fff;
- padding:10px;
- border-radius:50%;
- z-index:10;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,.55);
+    border:none;
+    color:#fff;
+    padding:10px;
+    border-radius:50%;
+    z-index:10;
+    cursor:pointer;
 }
-.prev{left:12px}
-.next{right:12px}
 
-/* MUSIC */
+.prev{left:12px;}
+.next{right:12px;}
+
+/* ================= MUSIC ================= */
 .post-music{
- position:absolute;
- left:12px;
- bottom:12px;
- z-index:20;
+    position:absolute;
+    left:12px;
+    bottom:12px;
+    z-index:20;
 }
+
 .music-icon{
- width:44px;
- height:44px;
- border-radius:50%;
- background:rgba(0,0,0,.6);
- display:flex;
- align-items:center;
- justify-content:center;
- color:#fff;
- cursor:pointer;
- transition:.25s;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:rgba(0,0,0,.6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    cursor:pointer;
+    transition:transform .25s ease, box-shadow .25s ease;
 }
+
 .music-icon.active{
- color:var(--accent);
- box-shadow:0 0 0 3px rgba(255,48,64,.4);
+    color:var(--accent);
+    box-shadow:0 0 0 3px rgba(255,48,64,.4);
 }
 
-/* ACTIONS */
+/* ================= ACTIONS ================= */
 .post-actions{
- display:flex;
- justify-content:space-between;
- padding:12px 14px;
+    display:flex;
+    justify-content:space-between;
+    padding:12px 14px;
 }
 
-/* MOBILE NAV */
+/* ================= MOBILE NAV ================= */
 .ig-bottom-nav{
- display:none;
+    display:none;
 }
 
-@media(max-width:768px){
- .ig-sidebar{display:none}
- .ig-feed{margin-left:0;padding-bottom:130px}
+/* ================= MOBILE ================= */
+@media (max-width:768px){
 
- .ig-bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:70px;
-  background:rgba(30,32,38,.96);
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  z-index:9999;
- }
+    .ig-sidebar{
+        display:none;
+    }
 
- .nav-item{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  font-size:11px;
- }
+    .ig-feed{
+        margin-left:0;
+        padding-bottom:130px;
+    }
 
- .nav-item i{font-size:22px}
+    .ig-bottom-nav{
+        position:fixed;
+        bottom:0;
+        left:0;
+        width:100%;
+        height:70px;
+        background:rgba(30,32,38,.96);
+        display:flex;
+        justify-content:space-around;
+        align-items:center;
+        z-index:9999;
+    }
 
- .mobile-theme-toggle{
-  width:52px;
-  height:52px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#ffb347,#ffcc70);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transform:translateY(-18px);
- }
-}
+    body.light .ig-bottom-nav{
+        background:rgba(250,244,236,.96);
+    }
+
+    .nav-item{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        font-size:11px
+
 
 
 
