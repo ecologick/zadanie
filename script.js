@@ -101,6 +101,16 @@ window.addEventListener('scroll', () => {
 });
 
 });
+/* ================= MOBILE THEME TOGGLE ================= */
+const mobileToggle = document.getElementById('mobileThemeToggle');
+
+if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light');
+    });
+}
+
+
 
 
 
